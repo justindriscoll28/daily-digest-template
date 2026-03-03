@@ -40,7 +40,7 @@ def main():
     print("This wizard configures your API keys and email settings.")
     print("After setup, personalize your digest by editing:")
     print("  config/writing_guide.md   — writing style")
-    print("  config/filter_config.json — companies, sectors, geographies")
+    print("  config/filter_config.json — rss_feeds, companies, sectors, geographies")
     print()
 
     CONFIG_DIR.mkdir(parents=True, exist_ok=True)
@@ -54,17 +54,9 @@ def main():
         print()
 
     # ----------------------------------------------------------------
-    # Readwise token
-    # ----------------------------------------------------------------
-    print("1. READWISE API TOKEN")
-    print("   Get yours at: https://readwise.io/access_token")
-    readwise_token = prompt("   Readwise token", existing.get("readwise_token", ""), password=True)
-    print()
-
-    # ----------------------------------------------------------------
     # Anthropic API key
     # ----------------------------------------------------------------
-    print("2. ANTHROPIC API KEY (for Claude)")
+    print("1. ANTHROPIC API KEY (for Claude)")
     print("   Get yours at: https://console.anthropic.com/settings/keys")
     anthropic_key = prompt("   Anthropic API key", existing.get("anthropic_api_key", ""), password=True)
     print()
@@ -72,7 +64,7 @@ def main():
     # ----------------------------------------------------------------
     # Email configuration
     # ----------------------------------------------------------------
-    print("3. EMAIL CONFIGURATION")
+    print("2. EMAIL CONFIGURATION")
     print("   Gmail recommended. Use an App Password, not your account password.")
     print("   How to create a Gmail App Password:")
     print("     myaccount.google.com → Security → 2-Step Verification → App passwords")
@@ -90,7 +82,6 @@ def main():
     # Build config
     # ----------------------------------------------------------------
     config = {
-        "readwise_token": readwise_token,
         "anthropic_api_key": anthropic_key,
         "email": {
             "smtp_server": smtp_server,
@@ -113,7 +104,7 @@ def main():
     # ----------------------------------------------------------------
     # Scheduling instructions
     # ----------------------------------------------------------------
-    print("4. SCHEDULE YOUR DIGEST")
+    print("3. SCHEDULE YOUR DIGEST")
     print()
     print("   Option A — macOS launchd (runs even if crontab is disabled):")
     print(f"   See INSTALLATION.md for launchd instructions.")
@@ -130,10 +121,13 @@ def main():
     print("NEXT STEPS")
     print("=" * 60)
     print()
-    print("1. Personalize your writing style:")
+    print("1. Add your RSS feeds (news sources you want to follow):")
+    print("   nano config/filter_config.json  (edit the 'rss_feeds' section)")
+    print()
+    print("2. Personalize your writing style:")
     print("   nano config/writing_guide.md")
     print()
-    print("2. Add your portfolio companies, sectors, and geographies:")
+    print("3. Add your portfolio companies, sectors, and geographies:")
     print("   nano config/filter_config.json")
     print()
     print("3. Test your setup:")

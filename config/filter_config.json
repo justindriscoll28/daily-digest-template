@@ -1,6 +1,30 @@
 {
   "_instructions": "Fill in each section with your specific areas of interest. The digest will scan every article for relevance to these entities and include a dedicated 'Relevance' section when matches are found. Delete any categories you don't need. Add as many entries as you like.",
 
+  "rss_feeds": [
+    {
+      "_note": "Add any RSS feed URL here. Most news sites and blogs have one. To find a feed, search '[website name] RSS feed'. Replace these examples with sources you actually read.",
+      "name": "The Verge",
+      "url": "https://www.theverge.com/rss/index.xml"
+    },
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/"
+    },
+    {
+      "name": "Hacker News (top stories)",
+      "url": "https://hnrss.org/frontpage"
+    },
+    {
+      "name": "Reuters Business",
+      "url": "https://feeds.reuters.com/reuters/businessNews"
+    },
+    {
+      "name": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/feed/"
+    }
+  ],
+
   "digest_name": "My Daily Digest",
   "author_name": "Your Name",
   "focus_description": "Brief description of your focus (e.g., 'Early-stage investor in climate tech and advanced manufacturing')",
